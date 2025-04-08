@@ -21,14 +21,15 @@ let score = 0;
 
 function renderQuestion() {
   const q = questions[current];
-  app.innerHTML = \`
-    <h2>\${q.q}</h2>
-    <img src="\${q.image}" class="image" />
-    \${q.options.map((opt, i) => 
-      \`<div><button onclick="choose(\${i})">\${String.fromCharCode(65+i)}. \${opt}</button></div>\`
+  app.innerHTML = `
+    <h2>${q.q}</h2>
+    <img src="${q.image}" class="image" />
+    ${q.options.map((opt, i) =>
+      `<div><button onclick="choose(${i})">${String.fromCharCode(65 + i)}. ${opt}</button></div>`
     ).join("")}
-  \`;
+  `;
 }
+
 
 function choose(i) {
   if (i === questions[current].answer) {
