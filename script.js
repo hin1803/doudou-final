@@ -1,7 +1,7 @@
-
 const app = document.getElementById("app");
 app.innerHTML = "<h1>欢迎来到豆豆圣经答题游戏！</h1>";
 setTimeout(renderQuestion, 1500); // 延迟1.5秒进入游戏
+
 const questions = [
   {
     q: "耶稣出生在哪座城市？",
@@ -16,6 +16,7 @@ const questions = [
     image: "images/q2.jpg"
   }
 ];
+
 let current = 0;
 let score = 0;
 
@@ -30,21 +31,14 @@ function renderQuestion() {
   `;
 }
 
-
 function choose(i) {
   if (i === questions[current].answer) {
-    alert("答对啦！");
     score++;
-  } else {
-    alert("答错了！");
   }
   current++;
   if (current < questions.length) {
     renderQuestion();
   } else {
-    app.innerHTML = \`<h2>完成啦！你得了 \${score} 分</h2>
-    <img src="images/final.jpg" class="image" />\`;
+    app.innerHTML = `<h2>你答对了 ${score} / ${questions.length} 题！</h2>`;
   }
 }
-
-renderQuestion();
