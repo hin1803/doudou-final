@@ -1,5 +1,7 @@
 
 const app = document.getElementById("app");
+app.innerHTML = "<h1>欢迎来到豆豆圣经答题游戏！</h1>";
+setTimeout(renderQuestion, 1500); // 延迟1.5秒进入游戏
 const questions = [
   {
     q: "耶稣出生在哪座城市？",
